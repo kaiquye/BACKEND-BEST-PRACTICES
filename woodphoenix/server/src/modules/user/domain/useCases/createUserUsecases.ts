@@ -1,15 +1,17 @@
-import NewCollaboratorDto from '../dto/new-collaborator.dto';
 import { inject, injectable } from 'tsyringe';
 import AdapterUserRepository from '../../infra/adapters/AUserRepository';
+import NewCollaboratorDto from '../dto/new-collaborator.dto';
+import AppError from '../../../../Shared/Error/App.error';
 
 @injectable()
-export default class NewCollaborator {
+class CreateUserUseCase {
   constructor(
     @inject('UserRepository')
     private userRepository: AdapterUserRepository,
   ) {}
-
   async execute(newCollaboratorDto: NewCollaboratorDto) {
-    await this.userRepository.create(newCollaboratorDto);
+    const data = await this.userRepository.create(newCollaboratorDto);
+    return data;
   }
 }
+export default CreateUserUseCase;
