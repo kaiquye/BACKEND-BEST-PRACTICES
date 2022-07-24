@@ -11,7 +11,7 @@ model USERS {
     id       Int       @id @default(autoincrement())
     name String
     cpf String
-    access_type String @unique
+    access_type String
     team String @default("Colaborador")
     createAt DateTime @default(now())
 }

@@ -10,6 +10,7 @@ userRoutes.post(
   ValidateBody(
     Joi.object().keys({
       name: Joi.string().min(3).max(30).required(),
+      cpf: Joi.string().min(3).max(30).required(),
       access_type: Joi.string().min(3).max(30).required(),
       team: Joi.string().min(3).max(30).required(),
     }),
