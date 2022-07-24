@@ -6,6 +6,7 @@ import AppError from '../../../../Shared/Error/App.error';
 
 class NewCollaboratorServices {
   private internalError = 'internal error in our service';
+
   async execute(newCollaboratorDto: NewCollaboratorDto) {
     try {
       const createUser = container.resolve(CreateUserUseCase);

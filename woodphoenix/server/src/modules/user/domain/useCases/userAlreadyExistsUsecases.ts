@@ -6,7 +6,7 @@ import AppError from '../../../../Shared/Error/App.error';
 
 @injectable()
 class CreateUserUseCase {
-  private internalError = 'internal error in our service';
+  private alreadyExists = 'there is already a registered user with this cpf';
   constructor(
     @inject('UserRepository')
     private userRepository: AdapterUserRepository,
@@ -15,7 +15,7 @@ class CreateUserUseCase {
   async execute(newCollaboratorDto: NewCollaboratorDto): Promise<any> {
     const data = await this.userRepository.exists(newCollaboratorDto);
     if (data) {
-      throw new AppError(this.internalError, 500);
+      throw new AppError(this.alreadyExists, 409);
     }
   }
 }
