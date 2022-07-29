@@ -20,11 +20,12 @@ class CreateUserUseCase implements UseCase<NewCollaboratorDto, IResponse> {
         newCollaboratorDto,
       );
 
-      if (alreadyExists) {
+      if (false) {
         return Result<NewCollaboratorDto>.fail(this.alreadyExists, 400);
       }
 
-      await this.userRepository.create(newCollaboratorDto);
+      const data = await this.userRepository.create(newCollaboratorDto);
+      return Result<NewCollaboratorDto>.ok(data, 201);
     } catch (error) {
       return Result<NewCollaboratorDto>.fail('unable to create a new admin');
     }

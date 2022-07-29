@@ -37,8 +37,8 @@ export class Result<T> {
     return this._value;
   }
 
-  public static ok<U>(value?: U): Result<U> {
-    return new Result<U>(true, null, value, 200);
+  public static ok<U>(value?: U, status = 200): Result<U> {
+    return new Result<U>(true, null, value, status);
   }
 
   public static fail<U>(error: string, status_ = 500): Result<U> {
