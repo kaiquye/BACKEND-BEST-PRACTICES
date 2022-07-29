@@ -3,9 +3,13 @@ import express from 'express';
 import AllRoutes from './routes/routes';
 import './Shared/container/singleton';
 
-const server = express();
+try {
+  const server = express();
 
-server.use(express.json());
-server.use(AllRoutes);
+  server.use(express.json());
+  server.use(AllRoutes);
 
-server.listen(3030, () => console.log('start server...'));
+  server.listen(3030, () => console.log('start server...'));
+} catch (e) {
+  console.log(e);
+}

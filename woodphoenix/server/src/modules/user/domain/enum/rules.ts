@@ -1,0 +1,5 @@
+export enum Rules {
+  ADMIN = 'ADMIN',
+  COLLABORATOR = 'COLLABORATOR',
+  CAPTAIN = 'CAPTAIN',
+}
