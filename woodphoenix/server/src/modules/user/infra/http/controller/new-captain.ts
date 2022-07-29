@@ -1,18 +1,22 @@
 import { Request, Response } from 'express';
 import NewCollaboratorDto from '../../../domain/dto/new-collaborator.dto';
-import NewCollaboratorServices from '../../../domain/services/newCollaborator';
+import CreateUserUseCase from '../../../useCases/newAdmin/newAdmin';
+import { container } from 'tsyringe';
+import { Result } from '../../../../../Shared/Error/App.error';
+import { Rules } from '../../../domain/enum/rules';
 
-class NewCaptain {
+class NewCollaborator {
   async execute(req: Request, res: Response): Promise<Response> {
+    const useCase = container.resolve(CreateUserUseCase);
     const data: NewCollaboratorDto = {
       ...req.body,
-      access_type: 'captain',
+      access_type: Rules.CAPTAIN,
     };
 
-    const response = await NewCollaboratorServices.execute(data);
+    const response: Result<any> = await useCase.execute(data);
 
-    return res.send(response);
+    return res.status(response.status).json(response);
   }
 }
 
-export default new NewCaptain();
+export default new NewCollaborator();

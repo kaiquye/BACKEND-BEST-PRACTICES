@@ -3,7 +3,6 @@ import AdapterUserRepository from '../../infra/adapters/AUserRepository';
 import NewCollaboratorDto from '../../domain/dto/new-collaborator.dto';
 import { Result } from '../../../../Shared/Error/App.error';
 import UseCase from '../useCase';
-import AuthAdmin from '../../infra/http/middleware/auth /auth.admin';
 
 interface IResponse {}
 
@@ -20,7 +19,7 @@ class CreateUserUseCase implements UseCase<NewCollaboratorDto, IResponse> {
         newCollaboratorDto,
       );
 
-      if (false) {
+      if (alreadyExists) {
         return Result<NewCollaboratorDto>.fail(this.alreadyExists, 400);
       }
 
