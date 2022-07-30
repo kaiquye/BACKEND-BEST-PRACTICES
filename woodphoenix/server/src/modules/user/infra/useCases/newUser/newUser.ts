@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
-import AdapterUserRepository from '../../infra/adapters/AUserRepository';
-import NewCollaboratorDto from '../../domain/dto/new-collaborator.dto';
-import { Result } from '../../../../Shared/Error/App.error';
+import AdapterUserRepository from '../../adapters/AUserRepository';
+import NewCollaboratorDto from '../../../domain/dto/new-collaborator.dto';
+import { Result } from '../../../../../Shared/Error/App.error';
 import UseCase from '../useCase';
 
 interface IResponse {}
@@ -25,7 +25,7 @@ class CreateUserUseCase implements UseCase<NewCollaboratorDto, IResponse> {
 
       const data = await this.userRepository.create(newCollaboratorDto);
       return Result<NewCollaboratorDto>.ok(data, 201);
-    } catch (error) {
+    } catch {
       return Result<NewCollaboratorDto>.fail('unable to create a new admin');
     }
   }

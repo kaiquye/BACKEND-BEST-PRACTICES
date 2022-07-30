@@ -27,4 +27,10 @@ export default abstract class AbstractRepository<T> implements Repository<T> {
   findAll(): Promise<T[] | void> {
     return Promise.resolve(undefined);
   }
+
+  findOne(where: Partial<T>): Promise<T | void | any> {
+    return this.prisma[this.tableName].findFirst({
+      where: where,
+    });
+  }
 }

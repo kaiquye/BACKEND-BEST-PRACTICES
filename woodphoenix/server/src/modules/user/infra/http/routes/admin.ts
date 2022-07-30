@@ -1,13 +1,23 @@
 import ValidateBody from '../middleware/validate/validate.body';
 import Joi from 'joi';
-import NewUserController from '../controller/new-collaborator';
+import NewAdminController from '../controller/new-admin';
 import { Router } from 'express';
 import AuthAdmin from '../middleware/auth /auth.admin';
+import LoginAdminController from '../controller/login-admin';
 
 const adminRoutes = Router();
 
-adminRoutes.use(AuthAdmin.validate);
+adminRoutes.post(
+  '/sign',
+  ValidateBody(
+    Joi.object().keys({
+      cpf: Joi.string().min(3).max(30).required(),
+    }),
+  ),
+  LoginAdminController.execute,
+);
 
+adminRoutes.use(AuthAdmin.validate);
 adminRoutes.post(
   '/new/admin',
   ValidateBody(
@@ -17,7 +27,7 @@ adminRoutes.post(
       team: Joi.string().min(3).max(30).required(),
     }),
   ),
-  NewUserController.execute,
+  NewAdminController.execute,
 );
 
 export default adminRoutes;

@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import express from 'express';
-import AllRoutes from './routes/routes';
+import AllRoutes from './Shared/routes/routes';
 import './Shared/container/singleton';
 
 try {

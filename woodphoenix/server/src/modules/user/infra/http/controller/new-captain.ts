@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import NewCollaboratorDto from '../../../domain/dto/new-collaborator.dto';
-import CreateUserUseCase from '../../../useCases/newUser/newAdmin';
+import CreateUserUseCase from '../../useCases/newUser/newUser';
 import { container } from 'tsyringe';
 import { Result } from '../../../../../Shared/Error/App.error';
 import { Rules } from '../../../domain/enum/rules';
 
-class NewCollaborator {
+class NewCaptainController {
   async execute(req: Request, res: Response): Promise<Response> {
     const useCase = container.resolve(CreateUserUseCase);
     const data: NewCollaboratorDto = {
@@ -19,4 +19,4 @@ class NewCollaborator {
   }
 }
 
-export default new NewCollaborator();
+export default new NewCaptainController();
