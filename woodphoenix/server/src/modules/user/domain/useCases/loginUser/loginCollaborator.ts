@@ -3,7 +3,7 @@ import { inject, injectable } from 'tsyringe';
 import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
 import { Result } from '../../../../../Shared/Error/App.error';
 import { Rules } from '../../../utils/enums/rules';
-import AuthCollaborator from '../../../infra/http/middleware/auth /auth.collaborator';
+import AuthCollaboratore from '../../../infra/http/middleware/auth /auth.admin';
 
 interface IRequest {
   cpf: string;
@@ -11,7 +11,7 @@ interface IRequest {
 interface IResponse {}
 
 @injectable()
-class LoginAdminUseCase implements UseCase<IRequest, IResponse> {
+class LoginCollaboratoreUseCase implements UseCase<IRequest, IResponse> {
   constructor(
     @inject('UserRepository')
     private userRepository: AdapterUserRepository,
@@ -27,12 +27,12 @@ class LoginAdminUseCase implements UseCase<IRequest, IResponse> {
         return Result<any>.fail('cpf and invalid', 401);
       }
 
-      if (payload.access_type !== Rules.ADMIN) {
+      if (payload.access_type !== Rules.COLLABORATOR) {
         return Result<any>.fail('access denied', 401);
       }
 
       delete payload.cpf;
-      const token = AuthCollaborator.sing(payload);
+      const token = AuthCollaboratore.sing(payload);
 
       return Result<IResponse>.ok({ token }, 200);
     } catch {
@@ -41,4 +41,4 @@ class LoginAdminUseCase implements UseCase<IRequest, IResponse> {
   }
 }
 
-export default LoginAdminUseCase;
+export default LoginCollaboratoreUseCase;

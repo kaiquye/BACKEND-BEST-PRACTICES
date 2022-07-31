@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import adminRoutes from '../../modules/user/infra/http/routes/admin';
-import captainRouter from '../../modules/user/infra/http/routes/captain';
-import collaboratorRoutes from '../../modules/user/infra/http/routes/collaborator';
+import adminRoutes from '../../modules/user/infra/http/routes/admin/admin';
+import captainRouter from '../../modules/user/infra/http/routes/captain/captain';
+import collaboratorRoutes from '../../modules/user/infra/http/routes/collaborator/collaborator';
 
 const AllRoutes = Router();
 
