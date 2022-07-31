@@ -1,9 +1,9 @@
 import UseCase from '../useCase';
 import { inject, injectable } from 'tsyringe';
-import AdapterUserRepository from '../../adapters/AUserRepository';
+import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
 import { Result } from '../../../../../Shared/Error/App.error';
-import { Rules } from '../../../domain/enum/rules';
-import AuthAdmin from '../../http/middleware/auth /auth.admin';
+import { Rules } from '../../../utils/enums/rules';
+import AuthAdmin from '../../../infra/http/middleware/auth /auth.admin';
 
 interface IRequest {
   cpf: string;
@@ -16,13 +16,13 @@ class LoginAdminUseCase implements UseCase<IRequest, IResponse> {
     @inject('UserRepository')
     private userRepository: AdapterUserRepository,
   ) {}
+
   async execute(request: IRequest): Promise<Result<any>> {
     try {
       const payload = await this.userRepository.findOne({
         cpf: request.cpf,
       });
 
-      console.log(payload);
       if (!payload) {
         return Result<any>.fail('cpf and invalid', 401);
       }
@@ -31,7 +31,7 @@ class LoginAdminUseCase implements UseCase<IRequest, IResponse> {
         return Result<any>.fail('access denied', 401);
       }
 
-      delete payload.team;
+      delete payload.cpf;
       const token = AuthAdmin.sing(payload);
 
       return Result<IResponse>.ok({ token }, 200);

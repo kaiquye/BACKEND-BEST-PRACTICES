@@ -1,18 +1,22 @@
 import jwt from 'jsonwebtoken';
+import { Rules } from '../../../../utils/enums/rules';
 
 class AuthAdmin {
   validate(req, res, next) {
-    const SECRET_ADMIN = 'SECRET_ADMIN';
-    const { authorization } = req.headers;
-
-    const [, token] = authorization.split(' ');
-
     try {
-      const decode = jwt.verify(token, SECRET_ADMIN || '');
-      console.log(decode);
-      if (decode) next();
+      const SECRET_ADMIN = 'SECRET_ADMIN';
+      const { authorization } = req.headers;
+      const [, token] = authorization.split(' ');
+
+      const { access_type } = jwt.verify(token, SECRET_ADMIN || '');
+
+      if (access_type !== Rules.ADMIN) {
+        return res.status(401).json('invalid acess');
+      }
+
+      next();
     } catch (error) {
-      throw error.message;
+      return res.status(401).json('invalid token');
     }
   }
 

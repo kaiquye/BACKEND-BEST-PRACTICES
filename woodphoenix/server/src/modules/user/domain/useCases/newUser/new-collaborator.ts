@@ -1,13 +1,15 @@
 import { inject, injectable } from 'tsyringe';
-import AdapterUserRepository from '../../adapters/AUserRepository';
-import NewCollaboratorDto from '../../../domain/dto/new-collaborator.dto';
+import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
+import NewCollaboratorDto from '../../dto/new-collaborator.dto';
 import { Result } from '../../../../../Shared/Error/App.error';
 import UseCase from '../useCase';
 
 interface IResponse {}
 
 @injectable()
-class CreateUserUseCase implements UseCase<NewCollaboratorDto, IResponse> {
+class CreateCollaboratorUseCase
+  implements UseCase<NewCollaboratorDto, IResponse>
+{
   private alreadyExists = 'there is already a registered user';
   constructor(
     @inject('UserRepository')
@@ -15,9 +17,9 @@ class CreateUserUseCase implements UseCase<NewCollaboratorDto, IResponse> {
   ) {}
   async execute(newCollaboratorDto: NewCollaboratorDto): Promise<Result<any>> {
     try {
-      const alreadyExists = await this.userRepository.exists(
-        newCollaboratorDto,
-      );
+      const alreadyExists = await this.userRepository.exists({
+        cpf: newCollaboratorDto.cpf,
+      });
 
       if (alreadyExists) {
         return Result<NewCollaboratorDto>.fail(this.alreadyExists, 400);
@@ -30,4 +32,4 @@ class CreateUserUseCase implements UseCase<NewCollaboratorDto, IResponse> {
     }
   }
 }
-export default CreateUserUseCase;
+export default CreateCollaboratorUseCase;

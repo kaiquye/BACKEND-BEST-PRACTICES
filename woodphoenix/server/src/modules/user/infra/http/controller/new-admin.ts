@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import NewCollaboratorDto from '../../../domain/dto/new-collaborator.dto';
-import CreateUserUseCase from '../../useCases/newUser/newUser';
+import CreateUserUseCase from '../../../domain/useCases/newUser/new-admin';
 import { container } from 'tsyringe';
 import { Result } from '../../../../../Shared/Error/App.error';
-import { Rules } from '../../../domain/enum/rules';
+import { Rules } from '../../../utils/enums/rules';
 
 class NewAdminController {
   async execute(req: Request, res: Response): Promise<Response> {

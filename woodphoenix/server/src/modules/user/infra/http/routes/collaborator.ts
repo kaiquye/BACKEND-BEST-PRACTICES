@@ -3,6 +3,7 @@ import Joi from 'joi';
 
 import NewUserController from '../controller/new-collaborator';
 import ValidateBody from '../middleware/validate/validate.body';
+import NewCollaboratorController from '../controller/new-collaborator';
 
 const collaboratorRoutes = Router();
 
@@ -15,7 +16,11 @@ collaboratorRoutes.post(
       team: Joi.string().min(3).max(30).required(),
     }),
   ),
-  NewUserController.execute,
+  NewCollaboratorController.execute,
 );
+
+collaboratorRoutes.get('/message');
+
+collaboratorRoutes.get('/message/team');
 
 export default collaboratorRoutes;

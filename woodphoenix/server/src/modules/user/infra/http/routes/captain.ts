@@ -6,16 +6,8 @@ import NewCaptain from '../controller/new-captain';
 
 const captainRouter = Router();
 
-captainRouter.post(
-  '/new/captain',
-  ValidateBody(
-    Joi.object().keys({
-      name: Joi.string().min(3).max(30).required(),
-      cpf: Joi.string().min(3).max(30).required(),
-      team: Joi.string().min(3).max(30).required(),
-    }),
-  ),
-  NewCaptain.execute,
-);
+captainRouter.post('/message');
+
+captainRouter.patch('/edit/message'); //params
 
 export default captainRouter;
