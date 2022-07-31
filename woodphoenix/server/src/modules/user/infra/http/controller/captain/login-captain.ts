@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { Result } from '../../../../../../Shared/Error/App.error';
-import LoginCollaborator from '../../../../domain/useCases/loginUser/loginCollaborator';
+import LoginCaptainUseCase from '../../../../domain/useCases/loginUser/loginCaptain';
 
-class LoginCollaboratorController {
+class LoginCaptainController {
   async execute(req: Request, res: Response): Promise<Response> {
-    const useCase = container.resolve(LoginCollaborator);
+    const useCase = container.resolve(LoginCaptainUseCase);
 
     const response: Result<any> = await useCase.execute({ cpf: req.body.cpf });
 
@@ -13,4 +13,4 @@ class LoginCollaboratorController {
   }
 }
 
-export default new LoginCollaboratorController();
+export default new LoginCaptainController();
