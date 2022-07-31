@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import ValidateBody from '../../middleware/validate/validate.body';
+import ValidateBody from '../../../../../../shared/middleware/validate/validate.body';
 import Joi from 'joi';
 import NewAdminController from '../../controller/admin/new-admin';
-import AuthAdmin from '../../middleware/auth /auth.admin';
+import AuthAdmin from '../../../../../../shared/middleware/auth /auth.admin';
 import LoginAdminController from '../../controller/admin/login-admin';
 import NewCaptain from '../../controller/captain/new-captain';
 

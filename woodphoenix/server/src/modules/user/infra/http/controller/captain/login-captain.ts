@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import { Result } from '../../../../../../Shared/Error/App.error';
+import { Result } from '../../../../../../shared/Error/App.error';
 import LoginCaptainUseCase from '../../../../domain/useCases/loginUser/loginCaptain';
 
 class LoginCaptainController {

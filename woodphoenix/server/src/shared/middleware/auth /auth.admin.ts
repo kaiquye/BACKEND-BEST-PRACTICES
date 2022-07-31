@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { Rules } from '../../../../utils/enums/rules';
+import { Rules } from '../../../modules/user/utils/enums/rules';
 
 class AuthAdmin {
   validate(req, res, next) {

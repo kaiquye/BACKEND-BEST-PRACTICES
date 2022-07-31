@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import express from 'express';
-import AllRoutes from './Shared/routes/routes';
-import './Shared/container/singleton';
+import AllRoutes from './shared/routes/routes';
+import './shared/container/singleton';
 
 try {
   const server = express();

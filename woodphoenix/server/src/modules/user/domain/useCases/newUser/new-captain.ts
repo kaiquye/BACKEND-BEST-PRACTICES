@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
 import NewCollaboratorDto from '../../dto/new-collaborator.dto';
-import { Result } from '../../../../../Shared/Error/App.error';
+import { Result } from '../../../../../shared/Error/App.error';
 import UseCase from '../useCase';
 
 interface IResponse {}

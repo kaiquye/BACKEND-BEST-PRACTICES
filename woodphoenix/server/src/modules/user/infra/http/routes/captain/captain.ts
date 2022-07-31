@@ -1,4 +1,4 @@
-import ValidateBody from '../../middleware/validate/validate.body';
+import ValidateBody from '../../../../../../shared/middleware/validate/validate.body';
 import Joi from 'joi';
 
 import { Router } from 'express';

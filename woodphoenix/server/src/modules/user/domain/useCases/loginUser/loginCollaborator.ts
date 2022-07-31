@@ -1,9 +1,9 @@
 import UseCase from '../useCase';
 import { inject, injectable } from 'tsyringe';
 import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
-import { Result } from '../../../../../Shared/Error/App.error';
+import { Result } from '../../../../../shared/Error/App.error';
 import { Rules } from '../../../utils/enums/rules';
-import AuthCollaboratore from '../../../infra/http/middleware/auth /auth.admin';
+import AuthCollaboratore from '../../../../../shared/middleware/auth /auth.admin';
 
 interface IRequest {
   cpf: string;

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import Joi from 'joi';
 
-import ValidateBody from '../../middleware/validate/validate.body';
+import ValidateBody from '../../../../../../shared/middleware/validate/validate.body';
 import LoginCollaboratorController from '../../controller/captain/login-captain';
 import captainRouter from '../captain/captain';
 
