@@ -1,6 +1,6 @@
 import UseCase from '../useCase';
 import { inject, injectable } from 'tsyringe';
-import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
+import AdapterUserRepository from '../../../infra/repository/adapters/AUserRepository';
 import { Result } from '../../../../../shared/Error/App.error';
 import { Rules } from '../../../utils/enums/rules';
 import AuthCollaborator from '../../../../../shared/middleware/auth /auth.collaborator';

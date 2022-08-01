@@ -8,14 +8,17 @@ class AuthCaptain {
       const { authorization } = req.headers;
       const [, token] = authorization.split(' ');
 
-      const { access_type } = jwt.verify(token, SECRET_CAPTAIN || '');
+      const { access_type, team, id } = jwt.verify(token, SECRET_CAPTAIN || '');
 
       if (access_type !== Rules.CAPTAIN) {
         return res.status(401).json('invalid acess');
       }
 
+      req.body.team = team;
+      req.body.userId = id;
       next();
     } catch (error) {
+      console.log(error);
       return res.status(401).json('invalid token');
     }
   }

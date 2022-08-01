@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import IUserRepository from '../adapters/AUserRepository';
+import IUserRepository from './adapters/AUserRepository';
 
 class UserRepository extends IUserRepository {
   constructor() {

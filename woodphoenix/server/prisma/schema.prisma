@@ -8,10 +8,20 @@ datasource db {
 }
 
 model USERS {
-    id       Int       @id @default(autoincrement())
-    name String
-    cpf String
+    id          Int       @id @default(autoincrement())
+    name        String
+    cpf         String
     access_type String
-    team String @default("Colaborador")
-    createAt DateTime @default(now())
+    team        String @default("Colaborador")
+    MESSAGE     MESSAGES[]
+    createAt    DateTime @default(now())
+}
+
+model MESSAGES {
+   id       Int       @id @default(autoincrement())
+   message  String
+   team     String
+   user     USERS  @relation(fields: [userId], references: [id])
+   userId   Int
+   createAt DateTime @default(now())
 }

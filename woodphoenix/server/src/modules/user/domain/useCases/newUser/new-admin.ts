@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import AdapterUserRepository from '../../../infra/adapters/AUserRepository';
+import AdapterUserRepository from '../../../infra/repository/adapters/AUserRepository';
 import NewCollaboratorDto from '../../dto/new-collaborator.dto';
 import { Result } from '../../../../../shared/Error/App.error';
 import UseCase from '../useCase';
