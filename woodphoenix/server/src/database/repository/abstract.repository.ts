@@ -14,8 +14,10 @@ export default abstract class AbstractRepository<T> implements Repository<T> {
     return this.prisma[this.tableName].create({ data });
   }
 
-  delete(data: Partial<T>): Promise<boolean> {
-    return Promise.resolve(false);
+  delete(data: Partial<T>): Promise<boolean | any> {
+    return this.prisma.rANDOM_MESSAGES.deleteMany({
+      where: data,
+    });
   }
 
   exists(data: Partial<T>): Promise<T[] | void | any> {
@@ -25,7 +27,7 @@ export default abstract class AbstractRepository<T> implements Repository<T> {
   }
 
   findAll(): Promise<T[] | void> {
-    return Promise.resolve(undefined);
+    return this.prisma[this.tableName].findMany();
   }
 
   findOne(where: Partial<T>): Promise<T | void | any> {

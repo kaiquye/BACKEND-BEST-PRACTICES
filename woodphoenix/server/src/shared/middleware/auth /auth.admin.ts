@@ -8,12 +8,14 @@ class AuthAdmin {
       const { authorization } = req.headers;
       const [, token] = authorization.split(' ');
 
-      const { access_type } = jwt.verify(token, SECRET_ADMIN || '');
+      const { access_type, team, id } = jwt.verify(token, SECRET_ADMIN || '');
 
       if (access_type !== Rules.ADMIN) {
         return res.status(401).json('invalid acess');
       }
 
+      req.body.team = team;
+      req.body.userId = id;
       next();
     } catch (error) {
       return res.status(401).json('invalid token');

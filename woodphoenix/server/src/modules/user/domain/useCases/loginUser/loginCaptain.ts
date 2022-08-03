@@ -23,6 +23,8 @@ class LoginCaptainUseCase implements UseCase<IRequest, IResponse> {
         cpf: request.cpf,
       });
 
+      console.log(payload);
+
       if (!payload) {
         return Result<any>.fail('cpf and invalid', 401);
       }

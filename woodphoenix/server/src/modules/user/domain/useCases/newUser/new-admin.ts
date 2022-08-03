@@ -14,6 +14,7 @@ class CreateAdminUseCase implements UseCase<NewCollaboratorDto, IResponse> {
     private userRepository: AdapterUserRepository,
   ) {}
   async execute(newCollaboratorDto: NewCollaboratorDto): Promise<Result<any>> {
+    console.log(newCollaboratorDto);
     try {
       const alreadyExists = await this.userRepository.exists({
         cpf: newCollaboratorDto.cpf,

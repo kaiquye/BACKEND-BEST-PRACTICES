@@ -2,12 +2,22 @@ import { Router } from 'express';
 import Joi from 'joi';
 
 import ValidateBody from '../../../../../../shared/middleware/validate/validate.body';
-import LoginCollaboratorController from '../../controller/captain/login-captain';
-import captainRouter from '../captain/captain';
+import LoginCollaboratorController from '../../controller/collaborator/login-collaborator';
+import NewCollaboratorController from '../../controller/collaborator/new-collaborator';
 
 const collaboratorRoutes = Router();
 
-captainRouter.post(
+collaboratorRoutes.post(
+  '/',
+  ValidateBody(
+    Joi.object().keys({
+      cpf: Joi.string().min(3).max(30).required(),
+    }),
+  ),
+  NewCollaboratorController.execute,
+);
+
+collaboratorRoutes.post(
   '/sign',
   ValidateBody(
     Joi.object().keys({
