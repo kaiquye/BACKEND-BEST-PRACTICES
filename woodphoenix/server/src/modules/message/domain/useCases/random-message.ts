@@ -11,8 +11,8 @@ interface IRequest {
 
 @injectable()
 class RandomMessageUseCase implements UseCase<IRequest, Result<any>> {
-  private readonly maximumNumberDay = 4;
-  private readonly maxAbsentDays = 1;
+  private readonly maximumNumberDay = 4; // numero maximo de mensagem aleatorias por dia ( maxAbsentDays )
+  private readonly maxAbsentDays = 1; // periodo de dias que ele pode gerar  4 ( maximumNumberDay ) mensagems
 
   constructor(
     @inject('RandomMessageRepository')
