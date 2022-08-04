@@ -2,4 +2,65 @@
     display: flex;
     flex-direction: column;
 
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 90%;
 }
+.title{
+    color: white;
+    font-family: Ubuntu;
+}
+.backImage{
+    width: 70%;
+    height: 400px;
+    background-color: #93a42a;
+
+    border-bottom-left-radius: 340px;
+    border-top-left-radius: 340px;
+    border-top-right-radius: 340px;
+
+
+    box-shadow: inset #596516 10px 10px 110px 20px;
+
+}
+.body{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 50%;
+    height: 50%;
+
+    gap: 50px;
+}
+.ramdomMessage {
+    font-family: Ubuntu;
+
+    font-size: 30px;
+
+    color: white;
+}
+.buttonGenerete{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+
+    background-color: #ecbe13;
+    box-shadow: #ffcd10 3px 2px 21px 2px;
+
+    color: white;
+    font-weight: 600;
+}
+
+.buttonGenerete:hover{
+    background-color: white;
+    color: #ecbe13;
+    cursor: pointer;
+}
+

@@ -1,0 +1,31 @@
+.topBar{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    width: 100%;
+    height: auto;
+
+    background-color: #ecbe13;
+}
+.logo{
+    width: 50%;
+    display: flex;
+}
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.links a {
+    text-decoration: none;
+    font-family: Ubuntu;
+
+    margin-left: 14px;
+    font-size: 14px;
+
+    color: #f1f1f1;
+}
