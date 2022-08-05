@@ -2,9 +2,10 @@ import { Router } from 'express';
 import ValidateBody from '../../../../../../shared/middleware/validate/validate.body';
 import Joi from 'joi';
 import NewAdminController from '../../controller/admin/new-admin';
-import AuthAdmin from '../../../../../../shared/middleware/auth /auth.admin';
+import AuthAdmin from '../../../../../../shared/middleware/auth /validators/auth.admin';
 import LoginAdminController from '../../controller/admin/login-admin';
 import NewCaptain from '../../controller/captain/new-captain';
+import Auth from '../../../../../../shared/middleware/auth /auth';
 
 const adminRoutes = Router();
 
@@ -15,6 +16,7 @@ adminRoutes.post(
       cpf: Joi.string().min(3).max(30).required(),
     }),
   ),
+  Auth.validate,
   LoginAdminController.execute,
 );
 
@@ -28,6 +30,7 @@ adminRoutes.post(
       team: Joi.string().min(3).max(30).required(),
     }),
   ),
+  Auth.validate,
   NewAdminController.execute,
 );
 
@@ -40,6 +43,7 @@ adminRoutes.post(
       team: Joi.string().min(3).max(30).required(),
     }),
   ),
+  Auth.validate,
   NewCaptain.execute,
 );
 

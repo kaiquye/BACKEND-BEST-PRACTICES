@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import AuthCaptain from '../../../../../shared/middleware/auth /auth.captain';
+import AuthCaptain from '../../../../../shared/middleware/auth /validators/auth.captain';
 import NewMessageController from '../controller/new-message';
 import UpdateMessageController from '../controller/update-message';
 import RandomMessageController from '../controller/random-message';
-import AuthCollaborator from '../../../../../shared/middleware/auth /auth.collaborator';
+import AuthCollaborator from '../../../../../shared/middleware/auth /validators/auth.collaborator';
 import FindMessageController from '../controller/find-message';
 import ValidateBody from '../../../../../shared/middleware/validate/validate.body';
 import Joi from 'joi';

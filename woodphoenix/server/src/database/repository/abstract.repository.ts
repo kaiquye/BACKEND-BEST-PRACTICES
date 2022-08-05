@@ -15,7 +15,7 @@ export default abstract class AbstractRepository<T> implements Repository<T> {
   }
 
   delete(data: Partial<T>): Promise<boolean | any> {
-    return this.prisma.rANDOM_MESSAGES.deleteMany({
+    return this.prisma[this.tableName].deleteMany({
       where: data,
     });
   }

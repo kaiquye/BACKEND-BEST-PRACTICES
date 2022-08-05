@@ -27,8 +27,11 @@ class CreateCollaboratorUseCase
 
       const data = await this.userRepository.create(newCollaboratorDto);
       return Result<NewCollaboratorDto>.ok(data, 201);
-    } catch {
-      return Result<NewCollaboratorDto>.fail('unable to create a new admin');
+    } catch (error) {
+      console.log(error);
+      return Result<NewCollaboratorDto>.fail(
+        'unable to create a new collaborator',
+      );
     }
   }
 }

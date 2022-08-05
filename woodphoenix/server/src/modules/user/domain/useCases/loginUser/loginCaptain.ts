@@ -3,7 +3,7 @@ import { inject, injectable } from 'tsyringe';
 import AdapterUserRepository from '../../../infra/repository/adapters/AUserRepository';
 import { Result } from '../../../../../shared/Error/App.error';
 import { Rules } from '../../../utils/enums/rules';
-import AuthCaptain from '../../../../../shared/middleware/auth /auth.captain';
+import AuthCaptain from '../../../../../shared/middleware/auth /validators/auth.captain';
 
 interface IRequest {
   cpf: string;

@@ -2,10 +2,12 @@ import 'reflect-metadata';
 import express from 'express';
 import AllRoutes from './shared/routes/routes';
 import './shared/container/singleton';
+import cors from 'cors';
 
 try {
   const server = express();
 
+  server.use(cors());
   server.use(express.json());
   server.use(AllRoutes);
 

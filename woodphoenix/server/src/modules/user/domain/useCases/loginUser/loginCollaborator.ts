@@ -3,7 +3,7 @@ import { inject, injectable } from 'tsyringe';
 import AdapterUserRepository from '../../../infra/repository/adapters/AUserRepository';
 import { Result } from '../../../../../shared/Error/App.error';
 import { Rules } from '../../../utils/enums/rules';
-import AuthCollaboratore from '../../../../../shared/middleware/auth /auth.collaborator';
+import AuthCollaboratore from '../../../../../shared/middleware/auth /validators/auth.collaborator';
 
 interface IRequest {
   cpf: string;
@@ -35,7 +35,8 @@ class LoginCollaboratoreUseCase implements UseCase<IRequest, IResponse> {
       const token = AuthCollaboratore.sing(payload);
 
       return Result<IResponse>.ok({ token }, 200);
-    } catch {
+    } catch (error) {
+      console.log(error);
       return Result<IResponse>.fail('could not authenticate', 500);
     }
   }
