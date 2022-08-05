@@ -4,13 +4,14 @@ const API = axios.create({
   baseURL: "http://localhost:3030/",
 });
 
-function API_CONNECTION(url, config, body = undefined) {
+function API_CONNECTION(url, data = undefined, config = undefined) {
   return {
     async POST() {
-      return API.get(url, config);
+      console.log(url, data, config);
+      return API.post(url, data, config);
     },
     async GET() {
-      return API.get(url, config, body);
+      return API.get(url, config);
     },
   };
 }

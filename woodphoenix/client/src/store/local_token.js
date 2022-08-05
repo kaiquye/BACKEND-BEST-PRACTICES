@@ -1,5 +1,4 @@
 const NAME_TOKEN = "@TOKEN_WOODPHOENIX";
-const NAME_RULES = "@RULES_WOODPHOENIX"
 
 export default function useToken() {
   return {
@@ -11,17 +10,6 @@ export default function useToken() {
     },
     LOGGOF: function () {
       return localStorage.removeItem(NAME_TOKEN);
-    },
-  };
-}
-
-export default function useRules(){
-  return {
-    GET: function () {
-      return localStorage.getItem(NAME_RULES);
-    },
-    SET: function (item) {
-      localStorage.setItem(NAME_RULES, item);
     },
   };
 }

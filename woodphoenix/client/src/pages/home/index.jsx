@@ -1,14 +1,18 @@
 import css from "./styles/home.module.css";
 import { RandomMessage } from "../../services/message/randomMessage";
 import { useState } from "react";
+import ButtonGenereteMessage from "../../components/buttonGenereteMessage";
 
 export default function Home() {
   const generete = async function () {
+    setInLoading(true);
     const { randowMessage } = await RandomMessage();
     setRandomMessage(randowMessage);
+    setInLoading(false);
   };
 
   const [randomMessage, setRandomMessage] = useState(null);
+  const [inLoading, setInLoading] = useState(false);
 
   return (
     <section className={css.allScreen}>
@@ -22,14 +26,13 @@ export default function Home() {
           </label>
         </div>
         <div>
-          <button
+          <ButtonGenereteMessage
+            generete={generete}
             className={css.buttonGenerete}
-            onClick={async () => {
-              await generete();
-            }}
+            inLoading={inLoading}
           >
-            GENERETE NEW MESSAGE
-          </button>
+            Generete new message
+          </ButtonGenereteMessage>
         </div>
       </div>
       <div className={css.backImage}></div>

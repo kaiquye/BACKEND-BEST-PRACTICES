@@ -8,7 +8,11 @@ export async function RandomMessage() {
           "teste eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzYsIm5hbWUiOiJhc2Rhc2FzZGFzZGFzZGR0ZXN0ZSIsImFjY2Vzc190eXBlIjoiQ09MTEFCT1JBVE9SIiwidGVhbSI6InRlc3RlMSIsImNyZWF0ZUF0IjoiMjAyMi0wNy0zMFQyMTo0MjozOC44NzZaIiwiaWF0IjoxNjU5NDcxNTg2fQ.uqpBGTvQle_XrGhDhqoaTr-uiUkKKjJe00b1y_NrEpc",
       },
     };
-    const { data } = await API_CONNECTION("/message/randow", config).GET();
+    const { data } = await API_CONNECTION(
+      "/message/randow",
+      null,
+      config
+    ).GET();
     return data._value;
   } catch (error) {
     const { response } = error;
