@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FindMessageTeam } from "../../services/message/findMessageTeam";
+import css from "./styles/css.module.css";
 import { NewMessage } from "../../services/message/newMessage";
 
 export default function TeamMessage() {
@@ -17,15 +18,14 @@ export default function TeamMessage() {
   }, []);
 
   return (
-    <section>
-      <div>
+    <section className={css.body}>
+      <div className={css.title}>
         <h1>TEAM : {team}</h1>
       </div>
-      <h1>Team Messages</h1>
-      <section>
+      <section className={css.chat}>
         {messages &&
           messages.map((data) => (
-            <div>
+            <div className={css.chat_2}>
               <label>message : {data.message}</label>
             </div>
           ))}
