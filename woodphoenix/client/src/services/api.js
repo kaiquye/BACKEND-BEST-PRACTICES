@@ -7,7 +7,6 @@ const API = axios.create({
 function API_CONNECTION(url, data = undefined, config = undefined) {
   return {
     async POST() {
-      console.log(url, data, config);
       return API.post(url, data, config);
     },
     async GET() {

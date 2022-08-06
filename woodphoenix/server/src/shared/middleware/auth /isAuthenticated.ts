@@ -16,6 +16,7 @@ import { Result } from '../../Error/App.error';
 
 class Auth {
   async validate(req, res, next) {
+    console.log(req.headers);
     const { authorization } = req.headers;
 
     if (!authorization) {

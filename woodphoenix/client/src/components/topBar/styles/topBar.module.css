@@ -9,10 +9,12 @@
     width: 100%;
     height: auto;
 
-    background-color: #ecbe13;
+    background-color: #243a69;
 }
 .logo{
     width: 50%;
+
+    color: #ecbe13;
     display: flex;
 }
 .links {
@@ -28,4 +30,10 @@
     font-size: 14px;
 
     color: #f1f1f1;
+}
+
+.acess{
+    color: white;
+    padding-left: 40px;
+    color: #ecbe13;
 }

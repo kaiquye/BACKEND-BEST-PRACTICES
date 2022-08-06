@@ -1,25 +1,28 @@
 import API_CONNECTION from "../api";
 import useToken from "../../store/local_token";
 
-export async function RandomMessage() {
+export async function FindMessageTeam() {
   const guard_token = useToken();
+
+  alert("aquii");
+
   try {
     const config = {
       headers: {
         authorization: `Bearer ${guard_token.GET()}`,
       },
     };
+
     const { data } = await API_CONNECTION(
-      "/message/randow",
+      "/message/find/messages/team",
       null,
       config
     ).GET();
+
     return data._value;
   } catch (error) {
     const { response } = error;
-    if (response.data.error === "you can make only 4 random messages")
-      return alert("você so pode gerar 4 mensagens aleatorias!");
-
+    console.log(response);
     return alert("Error interno");
   }
 }

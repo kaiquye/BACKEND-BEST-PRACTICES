@@ -1,0 +1,80 @@
+.body{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+}
+.scrennBackGround{
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f4f2;
+
+    box-shadow: inset #ecf1f6 20px 20px 60px 100px;
+    border-top-right-radius: 500px;
+    border-top-left-radius: 500px;
+    border-bottom-left-radius: 500px;
+    border-bottom-right-radius: 500px;
+
+}
+.screnn{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    font-family: Ubuntu;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border:none;
+    border-bottom: 1px solid black
+}
+
+.form label {
+    color: #606060;
+    font-size: 10px;
+}
+
+.form input textarea:focus, input:focus, select:focus {
+    outline: 0;
+}
+
+.form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+
+    background-color: #243a69;
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+.form button:hover{
+    cursor: pointer;
+    background-color: #5b88a5;
+}
+
+.screnn a {
+    font-size: 12px;
+    font-family: Ubuntu;
+    text-decoration: none;
+
+    margin-bottom: 22px;
+}

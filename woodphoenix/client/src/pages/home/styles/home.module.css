@@ -15,14 +15,14 @@
 .backImage{
     width: 70%;
     height: 400px;
-    background-color: #93a42a;
+    background-color: #5b88a5;
 
     border-bottom-left-radius: 340px;
     border-top-left-radius: 340px;
     border-top-right-radius: 340px;
 
 
-    box-shadow: inset #596516 10px 10px 110px 20px;
+    box-shadow: inset #5b88a5 10px 10px 110px 20px;
 
 }
 .body{
