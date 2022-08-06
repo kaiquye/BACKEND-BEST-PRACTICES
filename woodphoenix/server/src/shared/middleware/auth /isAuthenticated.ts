@@ -9,20 +9,20 @@ import AuthCollaborator from './validators/auth.collaborator';
 import { Result } from '../../Error/App.error';
 
 /**
- * @class Auth this class is responsible for centralizing all user-related validations.
+ * @class IsAuthenticated this class is responsible for centralizing all user-related validations.
  *
  * @Security : Each type of RULE has its SECRET, increasing the security of the application
  */
 
-class Auth {
+class IsAuthenticated {
   async validate(req, res, next) {
-    console.log(req.headers);
-    const { authorization } = req.headers;
-
-    if (!authorization) {
-      throw new Error('token not informed');
-    }
     try {
+      const { authorization } = req.headers;
+
+      if (!authorization) {
+        throw new Error('token not informed');
+      }
+
       const [, token] = authorization.split(' ');
 
       const { id, access_type, team } = jwt.decode(token);
@@ -39,15 +39,8 @@ class Auth {
         rule => rule === infosUser.access_type && access_type === rule,
       );
 
-      switch (validRule) {
-        case Rules.COLLABORATOR:
-          AuthCollaborator.validate(token);
-        case Rules.ADMIN:
-          AuthAdmin.validate(token);
-        case Rules.CAPTAIN:
-          AuthCaptain.validate(token);
-        default:
-          return res.status(401).json('invalid acess');
+      if (!validRule) {
+        return res.status(401).json('invalid token');
       }
 
       req.body.team = team;
@@ -55,12 +48,10 @@ class Auth {
       req.body.rule = access_type;
       next();
     } catch (error) {
-      if (error instanceof Result) {
-        return res.status(error.status).json(error);
-      }
+      console.log(error);
       return res.status(401).json('invalid token');
     }
   }
 }
 
-export default new Auth();
+export default new IsAuthenticated();

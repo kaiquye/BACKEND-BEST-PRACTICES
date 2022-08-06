@@ -9,7 +9,7 @@ interface IRequest {
   message: string;
   team: string;
   user_id?: string;
-  id_message?: string;
+  id_message?: number;
 }
 
 @injectable()
@@ -23,6 +23,7 @@ class UpdateMessageUseCase implements UseCase<IRequest, Result<any>> {
   ) {}
   async execute(request: IRequest): Promise<Result<any>> {
     try {
+      console.log(request);
       const [leaderExists, messageExists] = await Promise.all([
         this.userRepository.exists({
           id: request.user_id,
@@ -40,10 +41,14 @@ class UpdateMessageUseCase implements UseCase<IRequest, Result<any>> {
         return Result<IMessage>.fail('message not found', 404);
       }
 
-      const message = await this.messageRepository.create(request);
+      const message = await this.messageRepository.update({
+        message: request.message,
+        id: request.id_message,
+      });
 
       return Result<IMessage>.ok(message, 201);
-    } catch {
+    } catch (error) {
+      console.log(error);
       return Result<IMessage>.fail('error editing message', 500);
     }
   }

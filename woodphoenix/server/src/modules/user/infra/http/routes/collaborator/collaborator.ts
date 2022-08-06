@@ -4,7 +4,9 @@ import Joi from 'joi';
 import ValidateBody from '../../../../../../shared/middleware/validate/validate.body';
 import LoginCollaboratorController from '../../controller/collaborator/login-collaborator';
 import NewCollaboratorController from '../../controller/collaborator/new-collaborator';
-import Auth from '../../../../../../shared/middleware/auth /auth';
+import Auth from '../../../../../../shared/middleware/auth /isAuthenticated';
+import AuthCollaborator from '../../../../../../shared/middleware/auth /validators/auth.collaborator';
+import AuthAdmin from '../../../../../../shared/middleware/auth /validators/auth.admin';
 
 const collaboratorRoutes = Router();
 
@@ -17,7 +19,6 @@ collaboratorRoutes.post(
       team: Joi.string().min(3).max(30).required(),
     }),
   ),
-  Auth.validate,
   NewCollaboratorController.execute,
 );
 

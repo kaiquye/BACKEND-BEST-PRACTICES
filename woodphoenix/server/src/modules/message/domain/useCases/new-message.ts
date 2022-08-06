@@ -21,10 +21,15 @@ class NewMessageUseCase implements UseCase<IMessage, Result<any>> {
         return Result<IMessage>.fail('duplicate messages', 409);
       }
 
-      const message = await this.messageRepository.create(request);
+      const message = await this.messageRepository.create({
+        message: request.message,
+        team: request.team,
+        userId: request.userId,
+      });
 
       return Result<IMessage>.ok(message, 201);
-    } catch {
+    } catch (error) {
+      console.log(error);
       return Result<IMessage>.fail(this.errorMessage, 500);
     }
   }

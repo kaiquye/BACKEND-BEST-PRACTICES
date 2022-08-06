@@ -5,7 +5,7 @@ import NewAdminController from '../../controller/admin/new-admin';
 import AuthAdmin from '../../../../../../shared/middleware/auth /validators/auth.admin';
 import LoginAdminController from '../../controller/admin/login-admin';
 import NewCaptain from '../../controller/captain/new-captain';
-import Auth from '../../../../../../shared/middleware/auth /auth';
+import Auth from '../../../../../../shared/middleware/auth /isAuthenticated';
 
 const adminRoutes = Router();
 
@@ -21,6 +21,7 @@ adminRoutes.post(
 );
 
 adminRoutes.use(AuthAdmin.validate);
+
 adminRoutes.post(
   '/new/admin',
   ValidateBody(

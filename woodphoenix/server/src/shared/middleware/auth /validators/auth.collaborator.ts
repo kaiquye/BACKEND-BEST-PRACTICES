@@ -3,22 +3,23 @@ import { Rules } from '../../../../modules/user/utils/enums/rules';
 import { Result } from '../../../Error/App.error';
 
 class AuthCollaborator {
-  validate(userToken): Result<any> | boolean {
+  validate(req, res, next) {
+    const { authorization } = req.headers;
     try {
       const SECRET_COLLABORATOR = 'SECRET_COLLABORATOR';
 
-      if (!userToken) {
-        throw new Error('token not informed');
-      }
+      const [, token] = authorization.split(' ');
 
-      const { access_type } = jwt.verify(userToken, SECRET_COLLABORATOR || '');
+      const { access_type } = jwt.verify(token, SECRET_COLLABORATOR || '');
 
       if (access_type !== Rules.COLLABORATOR) {
-        throw Result<any>.fail('ACCESS DENIED, USER IS NOT COLLABORATOR', 401);
+        return res.status(401).json('ACCESS DENIED, USER IS NOT COLLABORATOR');
       }
-      return true;
+
+      req.teste = '123123';
+      next();
     } catch (error) {
-      throw Result<any>.fail('ACCESS DENIED', 401);
+      return res.status(401).json('ACCESS DENIED');
     }
   }
 

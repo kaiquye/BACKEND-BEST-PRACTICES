@@ -1,5 +1,5 @@
 export default interface IMessage {
-  id?: string;
+  id?: number;
   message: string;
   team: string;
   userId?: number;

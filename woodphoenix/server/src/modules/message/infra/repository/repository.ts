@@ -14,6 +14,18 @@ class MessageRepository extends AdapterMessageRepository {
       },
     });
   }
+
+  update(message: Partial<IMessage>) {
+    const id_ = Number(message.id);
+    return this.prisma.mESSAGES.update({
+      where: {
+        id: id_,
+      },
+      data: {
+        message: message.message,
+      },
+    });
+  }
 }
 
 export default MessageRepository;
