@@ -21,7 +21,6 @@ messageRoutes.post(
     }),
   ),
   Auth.validate,
-  AuthCaptain.validate,
   NewMessageController.execute,
 );
 

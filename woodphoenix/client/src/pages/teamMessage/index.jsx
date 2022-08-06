@@ -22,12 +22,14 @@ export default function TeamMessage() {
         <h1>TEAM : {team}</h1>
       </div>
       <h1>Team Messages</h1>
-      {messages &&
-        messages.map((data) => (
-          <div>
-            <label>message : {data.message}</label>
-          </div>
-        ))}
+      <section>
+        {messages &&
+          messages.map((data) => (
+            <div>
+              <label>message : {data.message}</label>
+            </div>
+          ))}
+      </section>
     </section>
   );
 }
