@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import css from "./styles/css.module.css";
 import { NewMessage as NewMessage_ } from "../../services/message/newMessage";
+import { Link } from "react-router-dom";
 
 export default function NewMessage() {
   const [newMessage, setNewMessage] = useState();
@@ -19,6 +20,9 @@ export default function NewMessage() {
         <input onChange={(e) => setNewMessage(e.target.value)} />
         <button>Cadastrar</button>
       </form>
+      <Link to={"/team/message"} className={css.button_message}>
+        Mensagens da equipe
+      </Link>
     </section>
   );
 }
