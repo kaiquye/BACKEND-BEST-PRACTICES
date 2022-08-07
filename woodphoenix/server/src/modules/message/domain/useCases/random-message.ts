@@ -30,12 +30,9 @@ class RandomMessageUseCase implements UseCase<IRequest, Result<any>> {
         const diffInMs = current_date - oldDate;
         const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
 
-        // if (diffInDays < this.maxAbsentDays) {
-        //   return Result<IMessage>.fail(
-        //     'you can make only 4 random messages',
-        //     400,
-        //   );
-        // }
+        if (diffInDays < this.maxAbsentDays) {
+           return Result<IMessage>.fail('you can make only 4 random messages',400);
+        }
 
         const randowMessage = await randomMessage();
 
