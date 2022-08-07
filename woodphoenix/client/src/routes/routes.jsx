@@ -18,6 +18,10 @@ export default function AppRoutes() {
           <Route path={"/"} element={<Sign />} />
           <Route path={"/register"} element={<RegisterCollaborator />} />
           <Route path={"/team/message"} element={<TeamMessage />} />
+          <Route
+            path={"/new/message"}
+            element={<AuthRoutes Children={NewMessage} acess={"CAPTAIN"} />}
+          />
           <Route path={"/new/message"} element={<NewMessage />} />
           <Route
             path={"/home"}
