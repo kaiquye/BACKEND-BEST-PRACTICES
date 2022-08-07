@@ -1,7 +1,7 @@
 # :globe_with_meridians: WOODPHOENIX 
 
 ### :memo: Sobre 
-Website de mensagens da sorte com acesso exclusivo. Desenvolvido para aprimorar meu conhecimento em padrões de projetos e boas práticas, com foco no back-end.
+Website de mensagens da sorte com acesso exclusivo. Back-End desenvolvido seguindo alguns padrões de projetos e boas práticas.
 
 ### :rocket: Funcionalidades :
 * Cadastro de Colaboradores;
