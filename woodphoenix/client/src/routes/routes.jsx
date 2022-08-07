@@ -25,7 +25,6 @@ export default function AppRoutes() {
             path={"/new/message"}
             element={<AuthRoutes Children={NewMessage} acess={"CAPTAIN"} />}
           />
-          <Route path={"/new/message"} element={<NewMessage />} />
           <Route
             path={"/home"}
             element={<AuthRoutes Children={Home} acess={"COLLABORATOR"} />}
