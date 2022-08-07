@@ -25,6 +25,6 @@ Website de mensagens da sorte com acesso exclusivo. Desenvolvido com intuito de 
 ### :bento: Patterns 
 * SOLID
 * Clean Architecture
-
+![image](https://user-images.githubusercontent.com/69175890/183313286-8490b74d-1dce-4bf0-a28c-be25a55c578d.png)
 
 
