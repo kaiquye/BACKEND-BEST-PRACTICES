@@ -6,7 +6,7 @@ Cadastro
 ![image](https://user-images.githubusercontent.com/69175890/183312973-27138e31-c75f-42e8-98b4-5956799baefd.png)
 New message. By : Captain 
 ![image](https://user-images.githubusercontent.com/69175890/183313012-1e966ab5-30df-4ac8-be00-47cc0c8c2d63.png)
-Team message
-![image](https://user-images.githubusercontent.com/69175890/183313034-ca86fa78-45d6-4603-b1cc-767d2f926fad.png)
+Team message 
+![image](https://user-images.githubusercontent.com/69175890/183313269-0714d214-bffc-4eef-a043-22afb9664b3c.png)
 
 
