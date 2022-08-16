@@ -1,18 +1,24 @@
 # :globe_with_meridians: WOODPHOENIX 
 
-### :memo: Sobre 
-Website de mensagens da sorte com acesso exclusivo. Back-End desenvolvido seguindo alguns padrões de projetos e boas práticas.
+## Description
 
-### :rocket: Funcionalidades :
-* Cadastro de Colaboradores;
-* Página de Login;
-* Menu de Opções;
-* Cadastro de Mensagens;
-* Mensagens Aleatórias;
-* Cadastro de Usuários;
-* Cadastro de Líderes.
+### :memo: About 
+Lucky message website with exclusive access. Back-End developed following some design patterns and best practices.
+Practices in building the **back-end** : **dependency injection**, **Repository**, **clean architecture**, **solids**.
 
-### :wrench: Ferramentas : 
+### Practices and studies 
+The practices followed in this project are not the best and are not suitable for all cases. This project was developed based on my studies in clean code, clean architecture and solids
+
+### :rocket: Functionalities :
+* Registration of Collaborators;
+* Login page;
+* Options menu;
+* Message Registration;
+* Random Messages;
+* User registration;
+* Registration of Leaders.
+
+### :wrench: Tools : 
 * TypeScript
 * React.JS
 * Node.JS
